@@ -285,6 +285,24 @@ public final class PropertiesHelper {
      * @return value converted to the specified class type.
      */
     public static <T> T convertValue(Object value, Class<T> type) {
+
+        if (((type.equals(Integer.class)) || (type.equals(int.class))) && Long.class.isInstance(value)) {
+            Integer LongtoInt = ((Long) value).intValue();
+            return  (T) (Object) LongtoInt;
+        }
+        else if (type.equals(long.class) && Long.class.isInstance(value)) {
+            long Longtolong =  (long) value;
+            return  (T) (Object) Longtolong;
+        }
+        else if (((type.equals(Long.class)) || (type.equals(long.class))) && Integer.class.isInstance(value)) {
+            Long InttoLong =  Long.valueOf(((Integer) value).longValue());
+            return  (T) (Object) InttoLong;
+        }
+        else if (type.equals(int.class) && Integer.class.isInstance(value)) {
+            int Inttoint =  (int) value;
+            return  (T) (Object) Inttoint;
+        }
+
         if (!type.isInstance(value)) {
             // TODO: Move string value readers from server to common and utilize them here
             final Constructor constructor = AccessController.doPrivileged(ReflectionHelper.getStringConstructorPA(type));

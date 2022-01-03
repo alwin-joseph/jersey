@@ -173,4 +173,31 @@ public class PropertiesHelperTest {
         assertEquals(myNonJerseyProperty, PropertiesHelper.getPropertyNameForRuntime(myNonJerseyProperty, null));
     }
 
+    @Test
+    public void testconvertValue() {
+        Long lg = new Long(10);
+        Integer ig = new Integer(10);
+        int i = 10;
+        long l = 10L;
+
+        assertEquals(ig, PropertiesHelper.convertValue(i, Integer.class));
+        assertEquals(ig, PropertiesHelper.convertValue(ig, Integer.class));
+        assertEquals(ig, PropertiesHelper.convertValue(l, Integer.class));
+        assertEquals(ig, PropertiesHelper.convertValue(lg, Integer.class));
+        assertEquals(lg, PropertiesHelper.convertValue(i, Long.class));
+        assertEquals(lg, PropertiesHelper.convertValue(ig, Long.class));
+        assertEquals(lg, PropertiesHelper.convertValue(l, Long.class));
+        assertEquals(lg, PropertiesHelper.convertValue(lg, Long.class));
+        assertEquals(ig, PropertiesHelper.convertValue(i, int.class));
+        assertEquals(ig, PropertiesHelper.convertValue(ig, int.class));
+        assertEquals(ig, PropertiesHelper.convertValue(l, int.class));
+        assertEquals(ig, PropertiesHelper.convertValue(lg, int.class));
+        assertEquals(lg, PropertiesHelper.convertValue(i, long.class));
+        assertEquals(lg, PropertiesHelper.convertValue(ig, long.class));
+        assertEquals(lg, PropertiesHelper.convertValue(l, long.class));
+        assertEquals(lg, PropertiesHelper.convertValue(lg, long.class));
+
+    }
+
+
 }
