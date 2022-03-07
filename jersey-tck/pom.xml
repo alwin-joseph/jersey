@@ -25,7 +25,14 @@
     <version>3.1.0</version>
     <packaging>pom</packaging>
 
-    <name>Jakarta RESTful WS Compliance</name>
+    <parent>
+        <groupId>jakarta.ws.rs</groupId>
+        <artifactId>all</artifactId>
+        <version>3.1.0</version>
+    </parent>
+
+    
+    <name>Jakarta RESTful WS Compliance for Jersey</name>
     <description>This test verifies the compliance of Eclipse Jersey with Jakarta REST</description>
 
     <properties>
@@ -58,13 +65,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <repositories>
-        <repository>
-            <id>jakarta-snapshots</id>
-            <url>https://jakarta.oss.sonatype.org/content/repositories/staging/</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <dependency>
